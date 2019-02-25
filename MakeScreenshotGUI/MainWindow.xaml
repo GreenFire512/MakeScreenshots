@@ -1,0 +1,30 @@
+﻿<Window x:Class="MakeScreenshot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MakeScreenshot"
+        mc:Ignorable="d"
+        Title="Make easy Screenshots" Height="309.433" Width="609.756">
+    <Window.CommandBindings>
+        <CommandBinding Command="New"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Button HorizontalAlignment="Left" Margin="52,32,0,0" VerticalAlignment="Top" Width="146" Height="43" Click="ButtonFullScreen_Click">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Take Full screenshot Key:PrintScreen</TextBlock>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="52,104,0,0" VerticalAlignment="Top" Width="146" Height="42" Click="ButtonActiveScreen_Click">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Take Active screenshot Key:Alt+PrintScreen</TextBlock>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="52,173,0,0" VerticalAlignment="Top" Width="146" Height="42" Click="ButtonClipScreen_Click">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Take Clip screenshot Key:Shift+PrintScreen</TextBlock>
+        </Button>
+        <Button Content="Choose dir save" HorizontalAlignment="Left" Margin="229,32,0,0" VerticalAlignment="Top" Width="146" Height="43" Click="DirSave_Click"/>
+        <ComboBox x:Name="PicFormatBox" HorizontalAlignment="Left" Margin="229,124,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SavePicFormat">
+            <ComboBoxItem Content=".png"/>
+            <ComboBoxItem Content=".jpg"/>
+        </ComboBox>
+        <Label Content="Choose format file" HorizontalAlignment="Left" Margin="229,98,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
