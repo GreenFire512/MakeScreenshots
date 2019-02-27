@@ -5,42 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MakeScreenshotGUI"
         mc:Ignorable="d"
-        Title="SettingsWindow" Height="263.73" Width="528.074"
+        Title="SettingsWindow" Height="286.235" Width="542.14"
         Closing="CloseWidnow">
     <Grid>
         <TextBox x:Name="DirTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="236"/>
         <Button Content="Change" HorizontalAlignment="Left" Margin="296,10,0,0" VerticalAlignment="Top" Width="78" Height="23" Click="Button_ChangeDir" />
 
         <Label Content="Choose format file" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="PicFormatBox" HorizontalAlignment="Left" Margin="126,60,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="PicFormat_changed">
+        <ComboBox x:Name="PicFormatBox" HorizontalAlignment="Left" Margin="126,60,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content=".png"/>
             <ComboBoxItem Content=".jpg"/>
         </ComboBox>
 
         <Label Content="Capture Full screen" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Fullscr_alt" Content="Alt" HorizontalAlignment="Left" Margin="161,99,0,0" VerticalAlignment="Top" Checked="Fullscr_alt_Checked" />
-        <CheckBox x:Name="Fullscr_shift" Content="Shift" HorizontalAlignment="Left" Margin="201,99,0,0" VerticalAlignment="Top" Checked="Fullscr_shift_Checked" />
-        <CheckBox x:Name="Fullscr_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="257,99,0,0" VerticalAlignment="Top" Checked="Fullscr_ctrl_Checked" />
-        <ComboBox x:Name="Fullscr_key" HorizontalAlignment="Left" Margin="307,97,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Fullscrkey_changed">
+        <CheckBox x:Name="Fullscr_alt" Content="Alt" HorizontalAlignment="Left" Margin="161,99,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Fullscr_shift" Content="Shift" HorizontalAlignment="Left" Margin="201,99,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Fullscr_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="257,99,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Fullscr_key" HorizontalAlignment="Left" Margin="307,97,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Print Screen"/>
         </ComboBox>
 
 
         <Label Content="Capture Actuve Window" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Active_alt" Content="Alt" HorizontalAlignment="Left" Margin="161,138,0,0" VerticalAlignment="Top" Checked="Active_alt_Checked"/>
-        <CheckBox x:Name="Active_shift" Content="Shift" HorizontalAlignment="Left" Margin="201,138,0,0" VerticalAlignment="Top" Checked="Active_shift_Checked"/>
-        <CheckBox x:Name="Active_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="257,138,0,0" VerticalAlignment="Top" Checked="Active_ctrl_Checked"/>
-        <ComboBox x:Name="Activescr_key" HorizontalAlignment="Left" Margin="307,136,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Acrivescrkey_changed">
+        <CheckBox x:Name="Active_alt" Content="Alt" HorizontalAlignment="Left" Margin="161,138,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Active_shift" Content="Shift" HorizontalAlignment="Left" Margin="201,138,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Active_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="257,138,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Activescr_key" HorizontalAlignment="Left" Margin="307,136,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Print Screen"/>
         </ComboBox>
 
         <Label Content="Capture Region" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Region_alt" Content="Alt" HorizontalAlignment="Left" Margin="161,175,0,0" VerticalAlignment="Top" Checked="Region_alt_Checked"/>
-        <CheckBox x:Name="Region_shift" Content="Shift" HorizontalAlignment="Left" Margin="201,175,0,0" VerticalAlignment="Top" Checked="Region_shift_Checked"/>
-        <CheckBox x:Name="Region_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="257,175,0,0" VerticalAlignment="Top" Checked="Region_ctrl_Checked"/>
-        <ComboBox x:Name="Region_key" HorizontalAlignment="Left" Margin="307,173,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Regionscrkey_changed">
+        <CheckBox x:Name="Region_alt" Content="Alt" HorizontalAlignment="Left" Margin="161,175,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Region_shift" Content="Shift" HorizontalAlignment="Left" Margin="201,175,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Region_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="257,175,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Region_key" HorizontalAlignment="Left" Margin="307,173,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Print Screen"/>
         </ComboBox>
+        <Button Content="Cancel" Margin="438,222,0,0" Click="Button_Cancel" HorizontalAlignment="Left" Width="75" Height="20" VerticalAlignment="Top"/>
+        <Button Content="Save" Margin="343,222,0,0" Click="Button_Save" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
 
     </Grid>
 </Window>

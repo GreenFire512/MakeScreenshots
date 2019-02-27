@@ -22,14 +22,14 @@ namespace MakeScreenshot
 
             foreach(ListBoxItem item in PicFormatBox.Items)
             {
-                if (item.Content.ToString() == ProgramSettings.GetPicFormat())
+                if (item.Content.ToString() == Settings.pic_format)
                     PicFormatBox.SelectedValue = item;
             }
         }
 
         private void SavePicFormat(object sender, RoutedEventArgs e)
         {
-            ProgramSettings.SaveFormat(((ComboBoxItem)PicFormatBox.SelectedItem).Content.ToString());
+            Settings.pic_format = ((ComboBoxItem)PicFormatBox.SelectedItem).Content.ToString();
         }
 
         private void ButtonFullScreen_Click(object sender, RoutedEventArgs e)
@@ -58,9 +58,8 @@ namespace MakeScreenshot
         {
             using (FolderBrowserDialog dir = new FolderBrowserDialog())
             {
-                dir.SelectedPath = ProgramSettings.GetDirSave();
+                dir.SelectedPath = Settings.dir;
                 dir.ShowDialog();
-                ProgramSettings.Save(dir.SelectedPath);
             }
         }
     }

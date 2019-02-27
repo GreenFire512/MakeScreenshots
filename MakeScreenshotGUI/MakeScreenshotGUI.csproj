@@ -82,7 +82,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="IconTray.cs" />
-    <Compile Include="ProgramSettings.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="ScreenClip.xaml.cs">
       <DependentUpon>ScreenClip.xaml</DependentUpon>
     </Compile>

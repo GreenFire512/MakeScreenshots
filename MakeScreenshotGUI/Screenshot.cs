@@ -40,8 +40,7 @@ namespace MakeScreenshotGUI
         public static void TakeFullScreen()
         {
             Size size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            Save(GetBitmap(size, 0, 0), ProgramSettings.GetDirSave());
+            Save(GetBitmap(size, 0, 0), Settings.dir);
         }
 
         public static void TakeActiveScreen()
@@ -49,23 +48,37 @@ namespace MakeScreenshotGUI
             Rect rect = new Rect();
             GetWindowRect(GetForegroundWindow(), ref rect);
             Size size = new Size(rect.Right - rect.Left - 14, rect.Bottom - rect.Top - 7);
-            Save(GetBitmap(size, rect.Top, rect.Left + 7), ProgramSettings.GetDirSave());
+            Save(GetBitmap(size, rect.Top, rect.Left + 7), Settings.dir);
         }
 
         private static void Save(Bitmap img, string path)
         {
             path = (Directory.Exists(path)) ? path : Application.StartupPath;
+            MemoryStream memoryStream = new MemoryStream();
 
             DateTime date = DateTime.Now;
-            switch (ProgramSettings.GetPicFormat())
+            switch (Settings.pic_format)
             {
                 case ".jpg":
-                    img.Save(path + "\\" + date.ToString("yyyymmdd-Hmmss") + ".jpg", ImageFormat.Jpeg);
+                    path = path + "\\" + date.ToString("yyyymmdd-Hmmss") + ".jpg";
+                    img.Save(memoryStream, ImageFormat.Png);
                     break;
                 case ".png":
-                    img.Save(path + "\\" + date.ToString("yyyymmdd-Hmmss") + ".png", ImageFormat.Png);
+                default:
+                    path = path + "\\" + date.ToString("yyyymmdd-Hmmss") + ".png";
+                    img.Save(memoryStream, ImageFormat.Png);
                     break;
             }
+
+            using (FileStream file = new FileStream(path, FileMode.Create, System.IO.FileAccess.Write))
+            {
+                byte[] bytes = new byte[memoryStream.Length];
+                memoryStream.Read(bytes, 0, (int)memoryStream.Length);
+                file.Write(bytes, 0, bytes.Length);
+                memoryStream.Close();
+            }
+
+            memoryStream.Dispose();
         }
 
         public static void TakeClipScreen() {
@@ -78,7 +91,7 @@ namespace MakeScreenshotGUI
         {
             Size size = new Size((int)(p2.X - p1.X), (int)(p2.Y - p1.Y));
             Bitmap img = ResizeBitmap(GetBitmap(size, (int)p1.X, (int)p1.Y), size.Width, size.Height);
-            Save(img, ProgramSettings.GetDirSave());
+            Save(img, Settings.dir);
         }
 
         private static Bitmap ResizeBitmap(Bitmap source, int sizex, int sizey)
