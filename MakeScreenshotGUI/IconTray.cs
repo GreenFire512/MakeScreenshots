@@ -7,7 +7,11 @@ namespace MakeScreenshotGUI
     class IconTray
     {
         NotifyIcon ni;
-        static MenuItem[] menuList = new MenuItem[] { new MenuItem("FullScreen"), new MenuItem("ActiveScreen"), new MenuItem("ClipScreen"), new MenuItem("Test"), new MenuItem("Settings"), new MenuItem("Exit") };
+#if DEBUG
+        static MenuItem[] menuList = new MenuItem[] { new MenuItem("Test"), new MenuItem("FullScreen"), new MenuItem("ActiveScreen"), new MenuItem("ClipScreen"), new MenuItem("Settings"), new MenuItem("Exit")};
+#else
+        static MenuItem[] menuList = new MenuItem[] { new MenuItem("FullScreen"), new MenuItem("ActiveScreen"), new MenuItem("ClipScreen"), new MenuItem("Settings"), new MenuItem("Exit")};
+#endif
         ContextMenu clickMenu = new ContextMenu(menuList);
 
         public void Start()
@@ -19,19 +23,26 @@ namespace MakeScreenshotGUI
                 ContextMenu = clickMenu
             };
 
-            //ni.Click += new System.EventHandler(NotifyIcon_Click);
 
-
+#if DEBUG
+            menuList[0].Click += new EventHandler(MenuTest_Click);
+            menuList[1].Click += new EventHandler(MenuFullScreen_Click);
+            menuList[2].Click += new EventHandler(MenuActiveScreen_Click);
+            menuList[3].Click += new EventHandler(MenuClipScreen_Click);
+            menuList[4].Click += new EventHandler(MenuSettings_Click);
+            menuList[5].Click += new EventHandler(MenuExit_Click);
+#else
             menuList[0].Click += new EventHandler(MenuFullScreen_Click);
             menuList[1].Click += new EventHandler(MenuActiveScreen_Click);
             menuList[2].Click += new EventHandler(MenuClipScreen_Click);
-            menuList[3].Click += new EventHandler(MenuTest_Click);
-            menuList[4].Click += new EventHandler(MenuSettings_Click);
-            menuList[5].Click += new EventHandler(MenuExit_Click);
+            menuList[3].Click += new EventHandler(MenuSettings_Click);
+            menuList[4].Click += new EventHandler(MenuExit_Click);
+#endif
         }
 
-        public void Dispose()
+        public void Delete()
         {
+            ni.Visible = false;
             ni.Dispose();
         }
 

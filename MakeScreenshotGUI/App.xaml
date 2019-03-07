@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:MakeScreenshotGUI"
              Startup="App_StartUp"
              ShutdownMode="OnExplicitShutdown"
+             Exit="App_Exit"
 >
     <Application.Resources>
          

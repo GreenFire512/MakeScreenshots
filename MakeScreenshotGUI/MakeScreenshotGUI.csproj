@@ -82,6 +82,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="IconTray.cs" />
+    <Compile Include="Input.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ScreenClip.xaml.cs">
       <DependentUpon>ScreenClip.xaml</DependentUpon>
@@ -90,7 +91,7 @@
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="TestWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -98,8 +99,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ScreenClip.xaml">
@@ -155,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="version.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

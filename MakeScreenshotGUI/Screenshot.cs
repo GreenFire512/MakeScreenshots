@@ -4,7 +4,6 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Windows.Interop;
 
 namespace MakeScreenshotGUI
 {
@@ -19,6 +18,7 @@ namespace MakeScreenshotGUI
         public static extern IntPtr FindWindow(string strClassName, string strWindowName);
         [DllImport("user32.dll")]
         public static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
+
         //
         [StructLayout(LayoutKind.Sequential)]
         public struct Rect
@@ -54,31 +54,19 @@ namespace MakeScreenshotGUI
         private static void Save(Bitmap img, string path)
         {
             path = (Directory.Exists(path)) ? path : Application.StartupPath;
-            MemoryStream memoryStream = new MemoryStream();
-
             DateTime date = DateTime.Now;
+
             switch (Settings.pic_format)
             {
                 case ".jpg":
-                    path = path + "\\" + date.ToString("yyyymmdd-Hmmss") + ".jpg";
-                    img.Save(memoryStream, ImageFormat.Png);
+                    img.Save(path + "\\" + date.ToString("yyyymmdd-Hmmss") + ".jpg", ImageFormat.Jpeg);
                     break;
                 case ".png":
                 default:
-                    path = path + "\\" + date.ToString("yyyymmdd-Hmmss") + ".png";
-                    img.Save(memoryStream, ImageFormat.Png);
+                    img.Save(path + "\\" + date.ToString("yyyymmdd-Hmmss") + ".png", ImageFormat.Png);
                     break;
             }
-
-            using (FileStream file = new FileStream(path, FileMode.Create, System.IO.FileAccess.Write))
-            {
-                byte[] bytes = new byte[memoryStream.Length];
-                memoryStream.Read(bytes, 0, (int)memoryStream.Length);
-                file.Write(bytes, 0, bytes.Length);
-                memoryStream.Close();
-            }
-
-            memoryStream.Dispose();
+            img.Dispose();
         }
 
         public static void TakeClipScreen() {

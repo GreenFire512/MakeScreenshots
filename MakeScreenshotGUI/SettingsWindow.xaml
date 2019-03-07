@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MakeScreenshotGUI"
         mc:Ignorable="d"
-        Title="SettingsWindow" Height="286.235" Width="542.14"
+        Title="SettingsWindow" Height="308.235" Width="542.14"
         Closing="CloseWidnow">
     <Grid>
         <TextBox x:Name="DirTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="236"/>
@@ -18,31 +18,30 @@
         </ComboBox>
 
         <Label Content="Capture Full screen" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Fullscr_alt" Content="Alt" HorizontalAlignment="Left" Margin="161,99,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Fullscr_shift" Content="Shift" HorizontalAlignment="Left" Margin="201,99,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Fullscr_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="257,99,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Fullscr_key" HorizontalAlignment="Left" Margin="307,97,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="Print Screen"/>
-        </ComboBox>
+        <RadioButton GroupName="Full Screen" x:Name="full_screen_none" Content="None" HorizontalAlignment="Left" Margin="155,99,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Full Screen" x:Name="full_screen_alt" Content="Alt" HorizontalAlignment="Left" Margin="208,99,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Full Screen" x:Name="full_screen_shift" Content="Shift" HorizontalAlignment="Left" Margin="250,99,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Full Screen" x:Name="full_screen_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="304,99,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox_full_screen" KeyUp="OnKeyUpFullScreen"  HorizontalAlignment="Left" Height="23" Margin="358,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly = "True"/>
 
 
-        <Label Content="Capture Actuve Window" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Active_alt" Content="Alt" HorizontalAlignment="Left" Margin="161,138,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Active_shift" Content="Shift" HorizontalAlignment="Left" Margin="201,138,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Active_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="257,138,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Activescr_key" HorizontalAlignment="Left" Margin="307,136,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="Print Screen"/>
-        </ComboBox>
+        <Label Content="Capture Active Window" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Active Screen" x:Name="active_screen_none" Content="None" HorizontalAlignment="Left" Margin="155,138,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Active Screen" x:Name="active_screen_alt" Content="Alt" HorizontalAlignment="Left" Margin="208,138,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Active Screen" x:Name="active_screen_shift" Content="Shift" HorizontalAlignment="Left" Margin="250,138,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Active Screen" x:Name="active_screen_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="304,138,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textbox_active_screen" KeyUp="OnKeyUpActiveScreen"  HorizontalAlignment="Left" Height="23" Margin="358,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly = "True"/>
 
         <Label Content="Capture Region" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Region_alt" Content="Alt" HorizontalAlignment="Left" Margin="161,175,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Region_shift" Content="Shift" HorizontalAlignment="Left" Margin="201,175,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="Region_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="257,175,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Region_key" HorizontalAlignment="Left" Margin="307,173,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="Print Screen"/>
-        </ComboBox>
+        <RadioButton GroupName="Region Screen" x:Name="region_screen_none" Content="None" HorizontalAlignment="Left" Margin="155,175,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Region Screen" x:Name="region_screen_alt" Content="Alt" HorizontalAlignment="Left" Margin="208,175,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Region Screen" x:Name="region_screen_shift" Content="Shift" HorizontalAlignment="Left" Margin="250,175,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Region Screen" x:Name="region_screen_ctrl" Content="Ctrl" HorizontalAlignment="Left" Margin="304,175,0,0" VerticalAlignment="Top"/>
         <Button Content="Cancel" Margin="438,222,0,0" Click="Button_Cancel" HorizontalAlignment="Left" Width="75" Height="20" VerticalAlignment="Top"/>
         <Button Content="Save" Margin="343,222,0,0" Click="Button_Save" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
+        <TextBox x:Name="textbox_region_screen" KeyUp="OnKeyUpRegionScreen"  HorizontalAlignment="Left" Height="23" Margin="358,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly = "True"/>
+
+
 
     </Grid>
 </Window>
