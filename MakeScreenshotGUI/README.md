@@ -1,4 +1,5 @@
-﻿v0.2
+﻿# MakeScreenshots
+v0.2
 	- fix image save
 	- delete test form on relese version
 	- corrected text in settings
